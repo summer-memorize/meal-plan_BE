@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const connect = require("./schemas");
+const errorHandler = require("./utils/errorHandler");
 const router = require("./routers");
 require("dotenv").config();
 
@@ -26,6 +27,7 @@ app.use(
 );
 
 app.use("/", router);
+app.use(errorHandler);
 
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기중", `\r\n http://localhost:${port}/ping`);
