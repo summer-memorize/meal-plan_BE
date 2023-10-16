@@ -8,7 +8,7 @@
 
 ## Base URL
 
-`https://gutjqjwldb.me`
+`개발 진행 중`
 
 <br>
 
