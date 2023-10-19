@@ -1,6 +1,7 @@
-const errorCodes = require("./errorCodes");
+import { Request, Response, NextFunction } from "express";
+import errorCodes from "./errorCodes";
 
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
   console.error(11111, err);
 
   const codeName = (err && err.codeName) || null;
@@ -12,4 +13,4 @@ const errorHandler = (err, req, res, next) => {
   return res.status(error.statusCode).json({ message: error.message });
 };
 
-module.exports = errorHandler;
+export default errorHandler;

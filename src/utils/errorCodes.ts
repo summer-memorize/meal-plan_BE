@@ -1,4 +1,9 @@
-module.exports = {
+interface ErrorCode {
+  statusCode: number;
+  message: string;
+}
+
+const errorCodes: Record<string, ErrorCode> = {
   BAD_REQUEST: {
     statusCode: 400,
     message: "잘못된 요청입니다.",
@@ -34,3 +39,5 @@ module.exports = {
     message: "서비스를 사용할 수 없습니다.",
   },
 };
+
+export default errorCodes;
