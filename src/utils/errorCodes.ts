@@ -4,6 +4,7 @@ interface ErrorCode {
 }
 
 const errorCodes: Record<string, ErrorCode> = {
+  // 400
   BAD_REQUEST: {
     statusCode: 400,
     message: "잘못된 요청입니다.",
