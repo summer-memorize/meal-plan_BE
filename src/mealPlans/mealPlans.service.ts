@@ -8,7 +8,13 @@ export class MealPlanService {
       const { year } = req.query;
 
       const mealPlans = await MealPlan.find({ date: { $regex: `${year}-[0-9]{2}-[0-9]{2}` } });
-      res.status(200).json({ data: mealPlans });
+
+      const data = mealPlans.map((mealPlan) => {
+        const { date, breakfast, lunch, dinner } = mealPlan;
+        return { date, breakfast, lunch, dinner };
+      });
+
+      res.status(200).json({ data });
     } catch (err) {
       next(err);
     }
