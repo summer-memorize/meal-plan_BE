@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "my-app",
-      script: "./dist/app.js",
+      script: "dist/app.js",
       cron_restart: "0 0 * * *",
       instances: 1,
       autorestart: true,
