@@ -6,12 +6,6 @@
 
 <br>
 
-## Base URL
-
-`개발 진행 중`
-
-<br>
-
 ## Endpoints
 
 ### GET /mealplans
