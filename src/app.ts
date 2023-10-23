@@ -2,7 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
-import errorHandler from "./utils/errorHandler";
+import errorHandler from "./middlewares/errorHandler";
 import mealPlansRouter from "./mealPlans/mealPlans.route";
 require("dotenv").config();
 
