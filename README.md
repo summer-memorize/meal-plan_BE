@@ -93,15 +93,9 @@ status: 200 OK
 
 `식단표를 삭제합니다.`
 
-##### BODY
+##### Query
 
 - date: 삭제하려는 식단표의 날짜를 "yyyy-mm-dd"형태로 입력합니다.
-
-##### Request body
-
-`{
-  date: "2023-10-08"
-}`
 
 ##### Response
 
