@@ -36,9 +36,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
 
           script: |
-            docker stop meal-plan
-            docker rm meal-plan
-            docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/meal-plan:latest
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/meal-plan:latest
-            docker run --restart=unless-stopped -d -p 3001:3002 --name meal-plan ${{ secrets.DOCKERHUB_USERNAME }}/meal-plan:latest
+            sudo docker stop meal-plan
+            sudo docker rm meal-plan
+            sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/meal-plan:latest
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/meal-plan:latest
+            sudo docker run --restart=unless-stopped -d -p 3001:3002 --name meal-plan ${{ secrets.DOCKERHUB_USERNAME }}/meal-plan:latest
             echo ">hello"
