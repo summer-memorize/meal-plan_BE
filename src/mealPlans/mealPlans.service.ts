@@ -10,14 +10,12 @@ export class MealPlanService {
     try {
       const { year } = await this.validator.yearSchema.validateAsync(req.query);
 
-      const mealPlans = await MealPlan.find({ date: { $regex: `${year}-[0-9]{2}-[0-9]{2}` } });
+      const mealPlans = await MealPlan.find(
+        { date: { $regex: `${year}-[0-9]{2}-[0-9]{2}` } },
+        "date breakfast lunch dinner"
+      );
 
-      const data = mealPlans.map((mealPlan) => {
-        const { date, breakfast, lunch, dinner } = mealPlan;
-        return { date, breakfast, lunch, dinner };
-      });
-
-      res.status(200).json({ data });
+      res.status(200).json({ data: mealPlans });
     } catch (err) {
       next(err);
     }
