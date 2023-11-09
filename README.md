@@ -1,102 +1,73 @@
-# API Documentation
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-## Introduction
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-식단표 작성 API입니다.
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-<br>
+## Description
 
-## Endpoints
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-### GET /mealplans
+## Installation
 
-`연도 별로 식단표 정보를 가져옵니다.`
+```bash
+$ npm install
+```
 
-##### Query
+## Running the app
 
-- year : 식단표 정보를 가져오려는 연도를 입력합니다.
+```bash
+# development
+$ npm run start
 
-##### Response
+# watch mode
+$ npm run start:dev
 
-status: 200 OK
-`{ data: [
-  {
-    breakfast: ["식빵 한 조각", "블루베리잼", "우유"],
-    lunch: ["현미밥", "김치찌개", "계란후라이"],
-    dinner: ["삼계탕", "막걸리"],
-    date: "yyyy-mm-dd"
-  },
-  ...,
-  {
-    breakfast: ["간장계란밥"],
-    lunch: ["흰밥", "제육볶음", "미역국"],
-    dinner: ["모츠나베", "하이볼"],
-    date: "yyyy-mm-dd"
-  }
-] }`
+# production mode
+$ npm run start:prod
+```
 
-<br>
+## Test
 
-### POST /mealplans
+```bash
+# unit tests
+$ npm run test
 
-`식단표를 입력합니다.`
+# e2e tests
+$ npm run test:e2e
 
-##### BODY
+# test coverage
+$ npm run test:cov
+```
 
-- breakfast : 아침 식단을 입력합니다.
-- lunch : 점심 식단을 입력합니다.
-- dinner : 저녁 식단을 입력합니다.
-- date: 저장하려는 식단표의 날짜를 "yyyy-mm-dd"형태로 입력합니다.
+## Support
 
-##### Request body
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-`{
-  breakfast: ["식빵 한 조각", "블루베리잼", "우유"],
-  lunch: ["현미밥", "김치찌개", "계란후라이"],
-  dinner: ["삼계탕", "막걸리"],
-  date: "2023-11-08"
-}`
+## Stay in touch
 
-##### Response
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-status: 201 Created
+## License
 
-<br>
-
-### PUT /mealplans
-
-`식단표를 수정합니다.`
-
-##### BODY
-
-- breakfast : 아침 식단을 입력합니다.
-- lunch : 점심 식단을 입력합니다.
-- dinner : 저녁 식단을 입력합니다.
-- date: 수정하려는 식단표의 날짜를 "yyyy-mm-dd"형태로 입력합니다.
-
-##### Request body
-
-`{
-  breakfast: ["식빵 한 조각", "블루베리잼", "우유"],
-  lunch: ["현미밥", "김치찌개", "계란후라이"],
-  dinner: ["치킨", "맥주"],
-  date: "2023-10-08"
-}`
-
-##### Response
-
-status: 200 OK
-
-<br>
-
-### DELETE /mealplans
-
-`식단표를 삭제합니다.`
-
-##### Query
-
-- date: 삭제하려는 식단표의 날짜를 "yyyy-mm-dd"형태로 입력합니다.
-
-##### Response
-
-status: 200 OK
+Nest is [MIT licensed](LICENSE).
